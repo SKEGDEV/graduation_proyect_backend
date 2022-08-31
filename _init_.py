@@ -3,7 +3,6 @@ Hello and welcome to my REST API, this API use bcrypt to encrypt and decrypt the
 user and validate session tokens.
 '''
 #Flask initialization
-from logging import debug
 from flask import Flask
 #Database initialization
 from database import mysql
