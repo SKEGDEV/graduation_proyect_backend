@@ -2,7 +2,7 @@ from jwt import decode, encode
 from os import getenv
 from datetime import datetime, timedelta
 
-class tokens:
+class token:
     def __init__(self,):
         self.saved_token = ""
         self.token_data = {}

@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 #CORS initialization
 from flask_cors import CORS
 #Blueprint initializations
-
+from routes.auth_routes import auth
 #App config
 app = Flask(__name__)
 CORS(app)
@@ -25,7 +25,7 @@ app.config['MYSQL_DATABASE_DB'] = getenv("database")
 mysql.init_app(app)
 
 #blueprint config
-
+app.register_blueprint(auth, url_prefix="/api")
 
 #Server config
 if __name__ == '__main__':
