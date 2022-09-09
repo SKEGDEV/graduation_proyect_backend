@@ -22,5 +22,19 @@ def auth_signup():
     response = jsonify(result)
     response.status_code =200
     return response
-    
 
+@auth.route("/auth/signin", methods=["POST"])
+def auth_signin():
+    set_data = request.get_json()
+    result = teacher().Get_teacher_user(set_data["nit"], set_data["password"])
+    if not result.get('token') and not result.get('err'):
+        response = jsonify(result)
+        response.status_code =200
+        return response
+    if not result.get('token'):
+        response = jsonify(result)
+        response.status_code =403
+        return response
+    response = jsonify(result)
+    response.status_code =200
+    return response
